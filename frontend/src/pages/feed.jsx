@@ -24,7 +24,7 @@ const Feed = () => {
 
   return (
     <div className="page-container">
-      <div className="feed-container">
+      <div className={`feed-container ${posts.length > 4 ? "grid-layout" : "list-layout"}`}>
         {loading ? (
           <div className="empty-state">
             <p>Loading posts...</p>
