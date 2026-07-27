@@ -60,8 +60,10 @@ const CreatePost = () => {
     formData.append("image", image);
     formData.append("caption", caption.trim());
 
+    const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
     try {
-      await axios.post("http://localhost:3000/create-post", formData, {
+      await axios.post(`${API_BASE_URL}/create-post`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

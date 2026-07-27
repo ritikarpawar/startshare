@@ -6,10 +6,12 @@ const Feed = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/posts");
+        const response = await axios.get(`${API_BASE_URL}/posts`);
         setPosts(response.data.posts || []);
       } catch (err) {
         console.error(err);
